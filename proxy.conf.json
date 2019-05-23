@@ -1,0 +1,7 @@
+{
+	"/api": {
+		"target": "http://stag.track-debts.com:8080",
+		"changeOrigin": true,
+		"secure": false
+	}
+}

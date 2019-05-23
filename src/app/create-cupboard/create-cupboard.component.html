@@ -1,0 +1,15 @@
+<body>
+<div>
+<form [formGroup]="createCupboardForm" (ngSubmit)="onSubmit(createCupboardForm.value)">
+  <div class="create_cupboard_form">
+    <div class="form-container">
+      <h2>Create Cupboard</h2>
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title">
+      </mat-form-field>
+    </div>
+    <button mat-button type="submit">Submit</button>
+  </div> 
+</form>
+</div>
+</body>

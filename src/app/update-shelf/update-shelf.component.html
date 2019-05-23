@@ -1,0 +1,23 @@
+<body>
+	<div>
+		<form [formGroup]="updateShelfForm" (ngSubmit)="onSubmit(updateShelfForm.value)">
+		  <div class="update_shelf_form">
+		    <div class="form-container">
+		      <h2>Edit Shelf</h2>
+		      <mat-form-field>
+		        <input matInput placeholder="Title" formControlName="title" value="">
+		      </mat-form-field>
+		      <mat-form-field>
+		        <mat-label>Device</mat-label>
+						  <mat-select formControlName="deviceId">
+						    <mat-option *ngFor="let item of devices" [value]="item.macAddress">
+						      {{item.title}}
+						    </mat-option>
+						  </mat-select>
+		      </mat-form-field>
+		    </div>
+		    <button mat-button type="submit">Submit</button>
+		  </div> 
+		</form>
+	</div>
+</body>

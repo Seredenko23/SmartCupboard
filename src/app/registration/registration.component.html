@@ -1,0 +1,27 @@
+<div>
+ <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+  <div class="singUp_form">
+    <div class="form-container">
+      <h2>Sign up</h2>      
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="FirstName">
+        <mat-error *ngIf="FirstName.invalid && FirstName.touched">{{ErrorMessage}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="LastName">
+        <mat-error *ngIf="LastName.invalid && LastName.touched">{{ErrorMessage}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+        <mat-error *ngIf="email.invalid && email.touched">{{ErrorMessage}}</mat-error>
+      </mat-form-field>
+        
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="password">
+        <mat-error *ngIf="password.invalid && password.touched">{{ErrorMessage}}</mat-error>
+      </mat-form-field>
+    <button mat-button type="submit" [disabled] = "!registrationForm.valid">Submit</button>
+  </div> 
+</div>

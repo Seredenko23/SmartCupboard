@@ -1,0 +1,16 @@
+.tableContainer {
+	margin: 20px 20px 0 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}

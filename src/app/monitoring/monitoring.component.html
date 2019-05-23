@@ -1,0 +1,69 @@
+<div class="overlay">
+<mat-accordion>
+  <mat-expansion-panel class="main" *ngFor="let item of cupboards">
+    <mat-expansion-panel-header (click)="getShelf(item.id)">
+      <mat-panel-title>
+        {{item.title}}
+      </mat-panel-title>
+      <mat-panel-description>
+        id:{{item.id}} 
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-accordion *ngIf='shelves'>
+			<mat-expansion-panel *ngFor="let shelf of shelves">
+				<mat-expansion-panel-header (click)="getItem(shelf.id)">
+					<mat-panel-title>
+						{{shelf.title}}
+      		</mat-panel-title>
+      		<mat-panel-description>
+ 						id:{{shelf.id}}
+      		</mat-panel-description>
+			 	</mat-expansion-panel-header>
+					<mat-grid-list cols="4" rowHeight="500px" gutterSize="3px" *ngIf="items">
+					  <mat-grid-tile
+					      *ngFor="let item of items"
+					      [colspan]="1"
+					      [rowspan]="1">  
+							<div class="card">
+								<div class="White">
+									<p>{{item.title}}</p>
+								</div>
+
+								<ul>
+									<li>
+										id : {{item.id}}
+									</li>
+									<mat-divider></mat-divider>
+									<li>
+										rfid: {{item.rfid}}
+									</li>
+									<mat-divider ></mat-divider>
+									<li>
+										Created: {{item.createdAt | date: 'short'}}
+									</li>
+									<mat-divider ></mat-divider>
+									<li> 
+										Shelf: {{item.sector.shelf.title}}
+									</li>
+									<mat-divider ></mat-divider>
+									<li> 
+										Sector: {{item.sector.title}}
+									</li>
+									<mat-divider ></mat-divider>
+									<li> 
+										Reader: {{item.sector.reader.title}}
+									</li>
+
+									<li>
+										<div class="indicator">
+											<div *ngIf="item.itemStatuses === 'PUT'; else takenBlock">
+												<i class="fas fa-check"></i>
+											</div>
+										</div>
+										<ng-template #takenBlock><i class="fas fa-times"></i></ng-template>
+									</li>
+								</ul>
+							</div>
+					  </mat-grid-tile>
+					</mat-grid-list>

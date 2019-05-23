@@ -1,0 +1,15 @@
+<body>
+<div>
+<form [formGroup]="updateCupboardForm" (ngSubmit)="onSubmit(updateCupboardForm.value)">
+  <div class="update_cupboard_form">
+    <div class="form-container">
+      <h2>Update Cupboard</h2>
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title">
+      </mat-form-field>
+    </div>
+    <button mat-button type="submit">Submit</button>
+  </div> 
+</form>
+</div>
+</body>
