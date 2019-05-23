@@ -2,7 +2,7 @@
   "name": "smart-cupboard",
   "version": "0.7.0",
   "scripts": {
-  	"postinstall": "ng build --aot -prod",
+  	"heroku-postbuild": "ng build --prod",
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
@@ -12,7 +12,6 @@
   },
   "private": true,
   "dependencies": {
-  	"typescript": "~3.2.2",
   	"@angular/cli": "~7.3.7",
   	"@angular/compiler-cli": "~7.2.0",
     "@angular/animations": "^7.2.11",
@@ -30,6 +29,7 @@
     "ngx-toastr": "^10.0.4",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "typescript": "~3.2.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
