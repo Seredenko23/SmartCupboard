@@ -1,0 +1,23 @@
+<body>
+	<div>
+		<form [formGroup]="updateSectorForm" (ngSubmit)="onSubmit(updateSectorForm.value)">
+		  <div class="update_sector_form">
+		    <div class="form-container">
+		      <h2>Edit Sector</h2>
+		      <mat-form-field>
+		        <input matInput placeholder="Title" formControlName="title" value="">
+		      </mat-form-field>
+		      <mat-form-field>
+		        <mat-label>Reader</mat-label>
+						  <mat-select formControlName="readerId">
+						    <mat-option *ngFor="let item of readers" [value]="item.id">
+						      {{item.title}}
+						    </mat-option>
+						  </mat-select>
+		      </mat-form-field>
+		    </div>
+		    <button mat-button type="submit">Submit</button>
+		  </div> 
+		</form>
+	</div>
+</body>

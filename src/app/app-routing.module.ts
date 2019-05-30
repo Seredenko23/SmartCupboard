@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', component: MainPageComponent },
   { path: '', redirectTo:"/home", pathMatch: 'full'},
   { path: 'monitoring', component: MonitoringComponent },
-  { path: 'profile-list', component:ProfileTableComponent },
+  //{ path: 'profile-list', component:ProfileTableComponent },
   { path: 'cupboard-review', component:CupboardReviewComponent }
 ];
 

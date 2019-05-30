@@ -6,8 +6,10 @@ import { CreateShelfComponent } from '../create-shelf/create-shelf.component';
 import { CreateSectorComponent } from '../create-sector/create-sector.component';
 import { UpdateShelfComponent } from '../update-shelf/update-shelf.component';
 import { UpdateCupboardComponent } from '../update-cupboard/update-cupboard.component';
+import { UpdateSectorComponent } from '../update-sector/update-sector.component';
 import { CupboardServiceService } from '../cupboard-service.service';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cupboard-review',
@@ -23,16 +25,6 @@ export class CupboardReviewComponent implements OnInit {
   cupboards: any;
   shelves: any;
   sectors: any;
-
-  createCupboard() {
-    const dialogRef = this.Cupboard.open(CreateCupboardComponent, {
-      width:'400px',
-      data: {}
-    });
-    dialogRef.afterClosed().subscribe(result =>{
-      this.getCupboard();
-    })
-  }
 
   createShelf(cupboardId: number) {
   this.cupboardService.setCupboardId(cupboardId);
@@ -62,6 +54,15 @@ export class CupboardReviewComponent implements OnInit {
     this.cupboardService.setCupboardId(cupboardId);
     this.cupboardService.setShelfId(shelfId);
     const dialogRef = this.Cupboard.open(UpdateShelfComponent, {
+      width:'400px',
+      data: {}
+    });
+  }
+
+  updateSector(shelfId: number, sectorId: number) {
+    this.cupboardService.setShelfId(shelfId);
+    this.cupboardService.setSectorId(sectorId);
+    const dialogRef = this.Cupboard.open(UpdateSectorComponent, {
       width:'400px',
       data: {}
     });

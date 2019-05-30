@@ -23,3 +23,12 @@
 ::ng-deep .mat-expansion-panel-body {
   padding: 0 !important;
 }
+
+strong {
+  color: #F09C3C;
+}
+
+.nav-link:hover {
+  color: #F09C3C !important;
+  transition: ease-out 0.2s;
+}

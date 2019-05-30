@@ -1,11 +1,10 @@
 <div class="overlay">
-<button mat-button (click)="createCupboard()">Створити шафу</button>
-
+<div class="accordion">
 <mat-accordion>
   <mat-expansion-panel class="main" *ngFor="let item of cupboards">
     <mat-expansion-panel-header (click)="getShelf(item.id)">
       <mat-panel-title>
-        {{item.title}}
+        <strong>{{item.title}}</strong>
       </mat-panel-title>
       <mat-panel-description>
         id:{{item.id}} 
@@ -14,11 +13,9 @@
     <div class="icons">
     	<mat-card class="delete icon" (click)="deleteCupboard(item.id)">
     		<p>Delete</p>
-    		<i class="fas fa-times"></i>
     	</mat-card>
 			<mat-card class="edit icon" (click)="updateCupboard(item.id)">
 				<p>Edit</p>
-				<i class="fas fa-clipboard-list"></i>
 			</mat-card>
 			<mat-card class="create icon" (click)="createShelf(item.id)">
 				<p>Create Shelf</p>
@@ -29,7 +26,7 @@
 			<mat-expansion-panel *ngFor="let shelf of shelves">
 				<mat-expansion-panel-header (click)="getSectors(shelf.id)">
 					<mat-panel-title>
-						{{shelf.title}}
+						<strong>{{shelf.title}}</strong>
       		</mat-panel-title>
       		<mat-panel-description>
  						id:{{shelf.id}}
@@ -39,11 +36,9 @@
 				<div class="icons">
 		    	<mat-card class="delete icon" (click)="deleteShefl(shelf.id)">
 		    		<p>Delete</p>
-		    		<i class="fas fa-times"></i>
 		    	</mat-card>
 					<mat-card class="edit icon" (click)="updateShelf(item.id, shelf.id)">
 						<p>Edit</p>
-						<i class="fas fa-clipboard-list"></i>
 					</mat-card>
 					<mat-card class="create icon" (click)="createSector(shelf.id)">
 						<p>Create Sector</p>
@@ -54,25 +49,22 @@
 					<mat-expansion-panel *ngFor="let sector of sectors">
 						<mat-expansion-panel-header>
 							<mat-panel-title>
-								{{sector.title}}
+								<strong>{{sector.title}}</strong>
 		      		</mat-panel-title>
 		      		<mat-panel-description>
 		 						id:{{sector.id}}
 		      		</mat-panel-description>
 					 	</mat-expansion-panel-header>
-
 						<div class="icons">
 				    	<mat-card class="delete icon" (click)="deleteSector(sector.id)">
 				    		<p>Delete</p>
-				    		<i class="fas fa-times"></i>
 				    	</mat-card>
-							<mat-card class="edit icon">
+							<mat-card class="edit icon" (click)="updateSector(shelf.id, sector.id)">
 								<p>Edit</p>
-								<i class="fas fa-clipboard-list"></i>
 							</mat-card>
 						</div>
 
-					 	<p>{{sector.reader.title}} id:{{sector.reader.id}}</p>
+					 	<p class="reader"><strong>{{sector.reader.title}}</strong> id:{{sector.reader.id}}</p>
 
 			 		</mat-expansion-panel>
 				</mat-accordion>

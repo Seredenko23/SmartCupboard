@@ -10,7 +10,7 @@ import { AuthComponent } from '../auth/auth.component';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(public signIn: MatDialog ) { }
+  constructor() { }
 
   ngOnInit() {
   }

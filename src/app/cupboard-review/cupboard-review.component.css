@@ -8,6 +8,15 @@
   background-color: #792991;
 }
 
+.accordion {
+	padding: 10px 10px 0;
+}
+
+.mat-expansion-panel {
+	box-shadow: 0 4px 6px 2px rgba(0,0,0,.2), 0 4px 6px 0 rgba(0,0,0,.14), 0 1px 6px 0 rgba(0,0,0,.12);
+	background-color:#F09C3C; 
+}
+
 .icons {
 	display: flex;
 	flex-direction: row;
@@ -19,7 +28,16 @@
 }
 
 p {
-	padding-left: 24px;
+	margin: 0;
+}
+
+mat-card:hover {
+	box-shadow: 0 3px 1px 0px rgba(0,0,0,.2), 0 3px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+	transition: ease 0.15s;
+}
+
+strong {
+	font-size: 1.1em;
 }
 
 .icon {
@@ -28,6 +46,7 @@ p {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	color: #fff;
 	margin: 0 auto;
 }
@@ -41,5 +60,11 @@ p {
 }
 
 .create {
-	background-color: orange;
+	background-color: #44075a;
+	line-height: 0.95em;
+}
+
+.reader {
+	margin-left: 24px;
+	padding-bottom: 12px;
 }

@@ -1,9 +1,10 @@
 <div class="overlay">
+<div class="accordion">
 <mat-accordion>
   <mat-expansion-panel class="main" *ngFor="let item of cupboards">
     <mat-expansion-panel-header (click)="getShelf(item.id)">
       <mat-panel-title>
-        {{item.title}}
+        <strong>{{item.title}}</strong>
       </mat-panel-title>
       <mat-panel-description>
         id:{{item.id}} 
@@ -14,7 +15,7 @@
 			<mat-expansion-panel *ngFor="let shelf of shelves">
 				<mat-expansion-panel-header (click)="getItem(shelf.id)">
 					<mat-panel-title>
-						{{shelf.title}}
+						<strong>{{shelf.title}}</strong>
       		</mat-panel-title>
       		<mat-panel-description>
  						id:{{shelf.id}}
@@ -27,7 +28,7 @@
 					      [rowspan]="1">  
 							<div class="card">
 								<div class="White">
-									<p>{{item.title}}</p>
+									<p><strong>{{item.title}}</strong></p>
 								</div>
 
 								<ul>

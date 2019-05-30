@@ -5,24 +5,30 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { CupboardServiceService } from '../cupboard-service.service';
 
 @Component({
-  selector: 'app-update-cupboard',
-  templateUrl: './update-cupboard.component.html',
-  styleUrls: ['./update-cupboard.component.css']
+  selector: 'app-update-sector',
+  templateUrl: './update-sector.component.html',
+  styleUrls: ['./update-sector.component.css']
 })
-export class UpdateCupboardComponent implements OnInit {
+export class UpdateSectorComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private http: HttpClient, private cupboardService: CupboardServiceService) { }
 
-  updateCupboardForm: FormGroup;
+  updateSectorForm: FormGroup;
+  readers: any;
 
   ngOnInit() {
-  	this.updateCupboardForm = this.fb.group({
-      title: ['']
+  	this.cupboardService.getReaders()
+  	.subscribe(data => {
+  		this.readers = data;
+  	})
+  	this.updateSectorForm = this.fb.group({
+      title: [''],
+      readerId: ['']
     })
   }
 
   onSubmit(data: any) {
-  	this.cupboardService.updateCupboard(this.cupboardService.getCupboardId() , data)
+  	this.cupboardService.updateSector(this.cupboardService.getShelfId(), this.cupboardService.getSectorId(), data)
   }
 
 }

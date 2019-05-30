@@ -2,6 +2,10 @@ import { Component, HostListener, ElementRef  } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { AuthComponent } from '../app/auth/auth.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { Router,NavigationEnd, NavigationStart } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { Event as NavigationEvent } from "@angular/router";
+import { CreateCupboardComponent } from './create-cupboard/create-cupboard.component';
 
 
 @Component({
@@ -12,10 +16,24 @@ import { RegistrationComponent } from './registration/registration.component';
 
 export class AppComponent {
 
+  url: string;
+  ShowCreateCupboard: boolean = false;
   isShow: boolean;
   topPosToStartShowing = 100;
 
-  constructor(public signIn: MatDialog, public singUp: MatDialog ) { }
+  constructor(public signIn: MatDialog, public singUp: MatDialog, private router: Router, public Cupboard: MatDialog, ) {
+    router.events.pipe(
+      filter(event => {
+        return (event instanceof NavigationStart)
+      })
+    ).subscribe((event: NavigationStart) => {
+      if(event.url == "/cupboard-review") {
+        this.ShowCreateCupboard = true;
+      } else {
+        this.ShowCreateCupboard = false;
+      }
+    })
+  }
 
   onSingIn() {
   	const dialogRef = this.signIn.open(AuthComponent, {
@@ -26,6 +44,13 @@ export class AppComponent {
 
   onSingUp() {
     const dialogRef = this.singUp.open(RegistrationComponent, {
+      width:'400px',
+      data: {}
+    });
+  }
+
+  createCupboard() {
+    const dialogRef = this.Cupboard.open(CreateCupboardComponent, {
       width:'400px',
       data: {}
     });

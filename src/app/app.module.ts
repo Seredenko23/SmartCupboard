@@ -17,6 +17,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ToastrModule } from 'ngx-toastr';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { CupboardServiceService } from './cupboard-service.service';
 
@@ -32,6 +33,7 @@ import { CreateShelfComponent } from './create-shelf/create-shelf.component';
 import { CreateSectorComponent } from './create-sector/create-sector.component';
 import { UpdateShelfComponent } from './update-shelf/update-shelf.component';
 import { UpdateCupboardComponent } from './update-cupboard/update-cupboard.component';
+import { UpdateSectorComponent } from './update-sector/update-sector.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { UpdateCupboardComponent } from './update-cupboard/update-cupboard.compo
     CreateShelfComponent,
     CreateSectorComponent,
     UpdateShelfComponent,
-    UpdateCupboardComponent
+    UpdateCupboardComponent,
+    UpdateSectorComponent
   ],
   imports: [
     BrowserModule,
@@ -67,9 +70,10 @@ import { UpdateCupboardComponent } from './update-cupboard/update-cupboard.compo
     MatSelectModule,
     MatButtonToggleModule,
     ToastrModule.forRoot(),
+    MatSidenavModule
   ],
   providers: [ CupboardServiceService ],
-
+  
   entryComponents: [
   AuthComponent,
   RegistrationComponent,
@@ -77,7 +81,8 @@ import { UpdateCupboardComponent } from './update-cupboard/update-cupboard.compo
   CreateShelfComponent,
   UpdateShelfComponent,
   UpdateCupboardComponent,
-  CreateSectorComponent
+  CreateSectorComponent,
+  UpdateSectorComponent
   ],
 
   bootstrap: [AppComponent]

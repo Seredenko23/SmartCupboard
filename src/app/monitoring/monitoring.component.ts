@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup , FormControl, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { CupboardServiceService } from '../cupboard-service.service';
@@ -56,8 +56,11 @@ export class MonitoringComponent implements OnInit {
     },
     error =>{
       this.items = null;
-      this.toastr.error("Can`t get items from server", "Oops!");
+      this.toastr.error("There are no items on this shelf", "Oops!");
     });
-
+  }
+  ngOnDestroy() {
+    this.itemSubscription.unsubscribe();
+    console.log('Yes!');
   }
 }
