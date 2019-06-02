@@ -17,7 +17,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ToastrModule } from 'ngx-toastr';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { CupboardServiceService } from './cupboard-service.service';
 
@@ -70,7 +70,7 @@ import { UpdateSectorComponent } from './update-sector/update-sector.component';
     MatSelectModule,
     MatButtonToggleModule,
     ToastrModule.forRoot(),
-    MatSidenavModule
+    MatProgressSpinnerModule
   ],
   providers: [ CupboardServiceService ],
   

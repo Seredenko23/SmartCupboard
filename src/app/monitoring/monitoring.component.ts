@@ -48,19 +48,26 @@ export class MonitoringComponent implements OnInit {
       this.items = null;
     }
    this.itemSubscription = this.cupboardService.getItems(ShelfId).pipe(repeatWhen(() => interval(3000)))
-    .subscribe(data => {
-      if((data != this.items) && !this.items) {
+    .subscribe((data:[]) => {
+      if(((data != this.items) && !this.items) && data.length) {
         this.toastr.success("Your data is here, pal :D", "Awesome!");
       }
+      if(!data.length) {
+        this.toastr.error("There are no items on this shelf", "Oops!");
+        this.items = null;
+        this.itemSubscription.unsubscribe()
+      } else {
         this.items = data;
+      }
     },
     error =>{
       this.items = null;
-      this.toastr.error("There are no items on this shelf", "Oops!");
+      this.toastr.error("Can`t get responce from server", "Oops!");
     });
   }
   ngOnDestroy() {
-    this.itemSubscription.unsubscribe();
-    console.log('Yes!');
+    if(this.itemSubscription){
+      this.itemSubscription.unsubscribe();
+    }
   }
 }

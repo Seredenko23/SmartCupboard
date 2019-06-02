@@ -16,6 +16,7 @@ import { CreateCupboardComponent } from './create-cupboard/create-cupboard.compo
 
 export class AppComponent {
 
+  loader: boolean = true;
   url: string;
   ShowCreateCupboard: boolean = false;
   isShow: boolean;
@@ -31,6 +32,14 @@ export class AppComponent {
         this.ShowCreateCupboard = true;
       } else {
         this.ShowCreateCupboard = false;
+      }
+    })
+    router.events.subscribe(event => {
+      if(event instanceof NavigationStart) {
+        this.loader = true;
+      }
+      if(event instanceof NavigationEnd) {
+        this.loader = false;
       }
     })
   }

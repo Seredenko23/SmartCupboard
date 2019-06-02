@@ -32,3 +32,18 @@ strong {
   color: #F09C3C !important;
   transition: ease-out 0.2s;
 }
+
+.loader {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#792991; 
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #F09C3C !important;
+}

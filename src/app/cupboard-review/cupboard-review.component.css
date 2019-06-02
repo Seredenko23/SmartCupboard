@@ -1,11 +1,5 @@
-.overlay {
-  margin-top: 58px;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-color: #792991;
+body {
+	background-color: #792991;
 }
 
 .accordion {
@@ -21,6 +15,17 @@
 	display: flex;
 	flex-direction: row;
 	padding-bottom:10px;
+}
+
+.overlay {
+  margin-top: 58px;
+  position: absolute;
+  width: 100%;
+  height: 94%;
+  left: 0;
+  top: 0;
+  background-color: #792991;
+  z-index: -1;
 }
 
 ::ng-deep .mat-expansion-panel-body {
