@@ -1,6 +1,6 @@
 {
 	"/api": {
-		"target": "http://stag.track-debts.com:8080",
+		"target": "http://smart-cupboard.kolegran.com:8080",
 		"changeOrigin": true,
 		"secure": false
 	}
