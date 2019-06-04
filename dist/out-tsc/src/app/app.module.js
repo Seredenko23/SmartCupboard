@@ -1,3 +1,4 @@
+import * as tslib_1 from "tslib";
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,9 +20,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ToastrModule } from 'ngx-toastr';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LayoutModule } from '@angular/cdk/layout';
-
 import { CupboardServiceService } from './cupboard-service.service';
-
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -35,58 +34,63 @@ import { CreateSectorComponent } from './create-sector/create-sector.component';
 import { UpdateShelfComponent } from './update-shelf/update-shelf.component';
 import { UpdateCupboardComponent } from './update-cupboard/update-cupboard.component';
 import { UpdateSectorComponent } from './update-sector/update-sector.component';
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    MainPageComponent,
-    MonitoringComponent,
-    AuthComponent,
-    RegistrationComponent,
-    ProfileTableComponent,
-    CupboardReviewComponent,
-    CreateCupboardComponent,
-    CreateShelfComponent,
-    CreateSectorComponent,
-    UpdateShelfComponent,
-    UpdateCupboardComponent,
-    UpdateSectorComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatGridListModule,
-    MatDialogModule,
-    MatTableModule,
-    MatPaginatorModule,
-    HttpClientModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatSelectModule,
-    MatButtonToggleModule,
-    ToastrModule.forRoot(),
-    MatProgressSpinnerModule,
-    LayoutModule
-  ],
-  providers: [ CupboardServiceService ],
-  
-  entryComponents: [
-  AuthComponent,
-  RegistrationComponent,
-  CreateCupboardComponent,
-  CreateShelfComponent,
-  UpdateShelfComponent,
-  UpdateCupboardComponent,
-  CreateSectorComponent,
-  UpdateSectorComponent
-  ],
-
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [
+                AppComponent,
+                MainPageComponent,
+                MonitoringComponent,
+                AuthComponent,
+                RegistrationComponent,
+                ProfileTableComponent,
+                CupboardReviewComponent,
+                CreateCupboardComponent,
+                CreateShelfComponent,
+                CreateSectorComponent,
+                UpdateShelfComponent,
+                UpdateCupboardComponent,
+                UpdateSectorComponent
+            ],
+            imports: [
+                BrowserModule,
+                AppRoutingModule,
+                ReactiveFormsModule,
+                BrowserAnimationsModule,
+                MatFormFieldModule,
+                MatInputModule,
+                MatButtonModule,
+                MatCardModule,
+                MatGridListModule,
+                MatDialogModule,
+                MatTableModule,
+                MatPaginatorModule,
+                HttpClientModule,
+                MatDividerModule,
+                MatExpansionModule,
+                MatSelectModule,
+                MatButtonToggleModule,
+                ToastrModule.forRoot(),
+                MatProgressSpinnerModule,
+                LayoutModule
+            ],
+            providers: [CupboardServiceService],
+            entryComponents: [
+                AuthComponent,
+                RegistrationComponent,
+                CreateCupboardComponent,
+                CreateShelfComponent,
+                UpdateShelfComponent,
+                UpdateCupboardComponent,
+                CreateSectorComponent,
+                UpdateSectorComponent
+            ],
+            bootstrap: [AppComponent]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+export { AppModule };
+//# sourceMappingURL=app.module.js.map

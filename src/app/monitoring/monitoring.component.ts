@@ -5,6 +5,7 @@ import { CupboardServiceService } from '../cupboard-service.service';
 import { repeatWhen } from 'rxjs/operators';
 import { interval } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-monitoring',
@@ -13,6 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MonitoringComponent implements OnInit {
 
+  colums: number = 4;
   notification: boolean = false;
   itemSubscription: any;
   cupboards: any;  
@@ -22,10 +24,24 @@ export class MonitoringComponent implements OnInit {
   constructor(private http: HttpClient,
    private fb: FormBuilder,
    private cupboardService: CupboardServiceService,
-   private toastr: ToastrService) { }
+   private toastr: ToastrService,
+   public breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
-    this.getCupboard()
+    this.getCupboard();
+    this.breakpointObserver
+      .observe(['(min-width: 720px)', '(min-width: 960px)', '(min-width: 1280px)'])
+      .subscribe((state: BreakpointState) => {
+        if (this.breakpointObserver.isMatched('(min-width: 1280px)')) {
+          this.colums = 4;
+        } else if(this.breakpointObserver.isMatched('(min-width: 960px)')) {
+          this.colums = 3;
+        } else if(this.breakpointObserver.isMatched('(min-width: 720px)')) {
+          this.colums = 2;
+        } else {
+          this.colums = 1;
+        }
+      });
   }
 
   getCupboard() {

@@ -22,7 +22,7 @@
  						id:{{shelf.id}}
       		</mat-panel-description>
 			 	</mat-expansion-panel-header>
-					<mat-grid-list cols="4" rowHeight="500px" gutterSize="3px" *ngIf="items">
+					<mat-grid-list cols="{{colums}}" rowHeight="500px" gutterSize="3px" *ngIf="items">
 					  <mat-grid-tile
 					      *ngFor="let item of items"
 					      [colspan]="1"
@@ -59,7 +59,7 @@
 
 									<li>
 										<div class="indicator">
-											<div *ngIf="item.itemStatuses === 'PUT'; else takenBlock">
+											<div *ngIf="item.itemStatus === 'PUT'; else takenBlock">
 												<i class="fas fa-check"></i>
 											</div>
 										</div>
