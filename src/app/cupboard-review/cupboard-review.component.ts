@@ -32,6 +32,10 @@ export class CupboardReviewComponent implements OnInit {
       width:'400px',
       data: {}
     });
+    dialogRef.afterClosed().subscribe(data => {
+        this.getShelf(cupboardId);
+      }
+    )
   }
 
   createSector(shelfId: number) {
@@ -40,6 +44,10 @@ export class CupboardReviewComponent implements OnInit {
       width:'400px',
       data: {}
     });
+    dialogRef.afterClosed().subscribe(data => {
+        this.getSectors(shelfId);
+      }
+    )
   }
 
   updateCupboard(cupboardId: number) {
@@ -48,6 +56,10 @@ export class CupboardReviewComponent implements OnInit {
       width:'400px',
       data: {}
     });
+    dialogRef.afterClosed().subscribe(data => {
+        this.getCupboard();
+      }
+    )
   }
 
   updateShelf(cupboardId: number, shelfId: number) {
@@ -57,6 +69,10 @@ export class CupboardReviewComponent implements OnInit {
       width:'400px',
       data: {}
     });
+    dialogRef.afterClosed().subscribe(data => {
+        this.getShelf(cupboardId);
+      }
+    )
   }
 
   updateSector(shelfId: number, sectorId: number) {
@@ -66,18 +82,26 @@ export class CupboardReviewComponent implements OnInit {
       width:'400px',
       data: {}
     });
+    dialogRef.afterClosed().subscribe(data => {
+        this.getSectors(shelfId);
+      }
+    )
   }
 
   deleteCupboard(id: number) {
     this.cupboardService.deleteCurrentCupboard(id);
+    this.getCupboard();
   }
 
-  deleteShefl(id: number) {
-    this.cupboardService.deleteCurrentShelf(id);
+  deleteShefl(shelfId: number, cupboardId: number) {
+    this.cupboardService.deleteCurrentShelf(shelfId);
+    this.getShelf(cupboardId);
+
   }
 
-  deleteSector(id: number) {
-    this.cupboardService.deleteCurrentSector(id);
+  deleteSector(sectorId: number, shelfId: number) {
+    this.cupboardService.deleteCurrentSector(sectorId);
+    this.getSectors(shelfId);
   }
 
   getCupboard(){

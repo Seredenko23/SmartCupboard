@@ -7,9 +7,6 @@
       <mat-panel-title>
         <strong>{{item.title}}</strong>
       </mat-panel-title>
-      <mat-panel-description>
-        id:{{item.id}} 
-      </mat-panel-description>
     </mat-expansion-panel-header>
 
     <mat-accordion *ngIf='shelves'>
@@ -18,9 +15,6 @@
 					<mat-panel-title>
 						<strong>{{shelf.title}}</strong>
       		</mat-panel-title>
-      		<mat-panel-description>
- 						id:{{shelf.id}}
-      		</mat-panel-description>
 			 	</mat-expansion-panel-header>
 					<mat-grid-list cols="{{colums}}" rowHeight="500px" gutterSize="3px" *ngIf="items">
 					  <mat-grid-tile
@@ -33,10 +27,6 @@
 								</div>
 
 								<ul>
-									<li>
-										id : {{item.id}}
-									</li>
-									<mat-divider></mat-divider>
 									<li>
 										rfid: {{item.rfid}}
 									</li>
