@@ -20,7 +20,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LayoutModule } from '@angular/cdk/layout';
 
-
 import { CupboardServiceService } from './cupboard-service.service';
 
 import { AppComponent } from './app.component';
@@ -36,6 +35,7 @@ import { CreateSectorComponent } from './create-sector/create-sector.component';
 import { UpdateShelfComponent } from './update-shelf/update-shelf.component';
 import { UpdateCupboardComponent } from './update-cupboard/update-cupboard.component';
 import { UpdateSectorComponent } from './update-sector/update-sector.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import { UpdateSectorComponent } from './update-sector/update-sector.component';
     CreateSectorComponent,
     UpdateShelfComponent,
     UpdateCupboardComponent,
-    UpdateSectorComponent
+    UpdateSectorComponent,
+    EditItemComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +86,8 @@ import { UpdateSectorComponent } from './update-sector/update-sector.component';
   UpdateShelfComponent,
   UpdateCupboardComponent,
   CreateSectorComponent,
-  UpdateSectorComponent
+  UpdateSectorComponent,
+  EditItemComponent
   ],
 
   bootstrap: [AppComponent]

@@ -8,8 +8,11 @@
 </head>
 <button mat-button class="scroll" *ngIf="isShow" (click)="gotoTop()"><i class="fas fa-arrow-up"></i></button>
 <div *ngIf="!loader">
-<nav class="navbar navbar-expand navbar-dark" style="background-color: #44075A">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #44075A">
   	<a class="navbar-brand" routerLink="/home">Smart-<strong>Cupboard</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   	<div class="collapse navbar-collapse" id="navbar1">
     	<ul class="navbar-nav mr-auto">
       	<li class="nav-item">

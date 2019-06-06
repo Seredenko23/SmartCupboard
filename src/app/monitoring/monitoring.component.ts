@@ -4,8 +4,10 @@ import { HttpClient } from '@angular/common/http';
 import { CupboardServiceService } from '../cupboard-service.service';
 import { repeatWhen } from 'rxjs/operators';
 import { interval } from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { ToastrService } from 'ngx-toastr';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { EditItemComponent } from '../edit-item/edit-item.component';
 
 @Component({
   selector: 'app-monitoring',
@@ -25,7 +27,8 @@ export class MonitoringComponent implements OnInit {
    private fb: FormBuilder,
    private cupboardService: CupboardServiceService,
    private toastr: ToastrService,
-   public breakpointObserver: BreakpointObserver) { }
+   public breakpointObserver: BreakpointObserver,
+   public Cupboard: MatDialog) { }
 
   ngOnInit() {
     this.getCupboard();
@@ -81,6 +84,15 @@ export class MonitoringComponent implements OnInit {
       this.toastr.error("Can`t get responce from server", "Oops!");
     });
   }
+
+  ChangeTitle(itemId: number) {
+  this.cupboardService.setItemId(itemId);
+    const dialogRef = this.Cupboard.open(EditItemComponent, {
+      width:'400px',
+      data: {}
+    });
+  }
+
   ngOnDestroy() {
     if(this.itemSubscription){
       this.itemSubscription.unsubscribe();

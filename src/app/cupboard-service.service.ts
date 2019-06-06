@@ -14,6 +14,7 @@ export class CupboardServiceService {
 	private cupboardId: number;
 	private shelfId: number;
 	private sectorId: number;
+	private itemId: number;
 
   constructor(private http: HttpClient, private toastr: ToastrService) { }
 
@@ -39,6 +40,14 @@ setSectorId(val: number) {
 
 getSectorId() {
 	return this.sectorId;
+}
+
+setItemId(val: number) {
+	this.itemId = val;
+}
+
+getItemId() {
+	return this.itemId;
 }
 
 createCupboard(data: any) {
@@ -130,6 +139,16 @@ updateSector(id: number, sectorId: number, sectorData: any) {
 	error =>{
       this.toastr.error("There are some problems", "Oops!");
     });
+}
+
+updateItemTitle(title: any, itemId: number) {
+	this.http.put(`/api/items/${itemId}`, title, {headers: new HttpHeaders({'Content-type': 'application/json'})
+	}).subscribe(data => {
+		this.toastr.success("Title updated!", "Success!")
+	},
+	error => {
+		this.toastr.error("Can`t update title","Oops!")
+	})
 }
 
 deleteCurrentCupboard(id: number) {

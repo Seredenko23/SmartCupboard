@@ -95,3 +95,16 @@ mat-accordion {
 .fas.fa-times {
 	color: red;
 }
+
+.edit {
+	position: absolute;
+	padding-left: 235px;
+}
+
+.edit-button {
+	font-size: 1em;
+}
+
+::ng-deep .edit-button {
+	margin: 0px !important;
+}

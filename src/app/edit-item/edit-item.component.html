@@ -1,0 +1,15 @@
+<body>
+	<div>
+		<form [formGroup]="updateItemForm" (ngSubmit)="onSubmit(updateItemForm.value)">
+		  <div class="update_item_form">
+		    <div class="form-container">
+		      <h2>Edit Item</h2>
+		      <mat-form-field>
+		        <input matInput placeholder="Title" formControlName="title" value="">
+		      </mat-form-field>
+		    </div>
+		    <button mat-button type="submit">Submit</button>
+		  </div> 
+		</form>
+	</div>
+</body>
